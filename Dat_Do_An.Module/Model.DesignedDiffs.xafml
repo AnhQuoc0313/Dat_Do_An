@@ -1,12 +1,61 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Dat_Do_An">
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="@6ebcabd0-e45e-4048-9ad4-4791d2eb448a" Caption="Danh mục đồ ăn" Index="0" ImageName="Shopping_Store" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="DANHMUC_ListView" Caption="Danh Mục" ObjectKey="" ViewId="DANHMUC_ListView" ImageName="Shopping_ShoppingCart" IsNewNode="True" />
+          <Item Id="LOAISANPHAM_ListView" ViewId="LOAISANPHAM_ListView" ObjectKey="" Caption="Loại đồ ăn" ImageName="Travel_Restaurant" IsNewNode="True" />
+          <Item Id="SANPHAM_ListView" ViewId="SANPHAM_ListView" ObjectKey="" Caption="Đồ ăn" ImageName="Travel_ReceptionBell" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="@fdd7ef80-35fc-4d1f-b507-458c363335f3" Caption="Khách hàng" Index="1" ImageName="BO_Position" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="NHOMKHACHHANG_ListView" ViewId="NHOMKHACHHANG_ListView" ObjectKey="" Caption="Nhóm khách hàng" ImageName="BO_Department" Index="2" IsNewNode="True" />
+          <Item Id="KHACHHANG_ListView" ViewId="KHACHHANG_ListView" ObjectKey="" Caption="Khách hàng" ImageName="BO_Customer" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="@9cd11792-007e-44bf-a130-2291bf120d82" Caption="Phiếu" Index="2" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="PHIEUCHI_ListView" ViewId="PHIEUCHI_ListView" ObjectKey="" Caption="Phiếu chi" ImageName="BO_Note" IsNewNode="True" />
+          <Item Id="PHIEUNHAP_ListView" ViewId="PHIEUNHAP_ListView" ObjectKey="" Caption="Phiếu nhập" ImageName="BO_KPI_Scorecard" IsNewNode="True" />
+          <Item Id="PHIEUTHU_ListView" ViewId="PHIEUTHU_ListView" ObjectKey="" ImageName="BO_Report" Caption="Phiếu thu" IsNewNode="True" />
+          <Item Id="PHIEUXUAT_ListView" ViewId="PHIEUXUAT_ListView" ObjectKey="" ImageName="BO_Contract" Caption="Phiếu xuất" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="@aa5ed19e-1c72-485c-b1e1-5f7438e69f3b" Caption="Nhân viên" Index="3" ImageName="BO_User" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="NHANVIEN_ListView" ViewId="NHANVIEN_ListView" ObjectKey="" Caption="Nhân viên" ImageName="BO_Person" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Default" Caption="Khác" ImageName="Copy">
+        <Items>
+          <Item Id="BAOHANH_ListView" Caption="Bảo Hành" ImageName="BO_Audit_ChangeHistory" />
+          <Item Id="DANHMUC_ListView" Caption="Danh Mục" ImageName="BO_Category" Removed="True" />
+          <Item Id="KHACHHANG_ListView" Removed="True" />
+          <Item Id="LOAISANPHAM_ListView" Removed="True" />
+          <Item Id="NHANVIEN_ListView" Removed="True" />
+          <Item Id="NHOMKHACHHANG_ListView" Removed="True" />
+          <Item Id="PHIEUCHI_ListView" Removed="True" />
+          <Item Id="PHIEUNHAP_ListView" Removed="True" />
+          <Item Id="PHIEUTHU_ListView" Removed="True" />
+          <Item Id="PHIEUXUAT_ListView" Removed="True" />
+          <Item Id="SANPHAM_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="24.1.3.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <ListView Id="NHOMKHACHHANG_ListView" ImageName="BO_Position" />
   </Views>
 </Application>
