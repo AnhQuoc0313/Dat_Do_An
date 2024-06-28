@@ -15,7 +15,7 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    [NavigationItem(false)]
+    [NavigationItem(true)]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]

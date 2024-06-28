@@ -15,7 +15,7 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    [NavigationItem(false)]
+    [NavigationItem(true)]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -72,7 +72,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private double _SoLuong;
-        [XafDisplayName("So Luong Nhap")]
+        [XafDisplayName("Số lượng nhập")]
         public double SoLuong
         {
             get { return _SoLuong; }
@@ -80,7 +80,7 @@ namespace Dat_Do_An.Module.Controllers
         }
 
         private decimal _DonGia;
-        [XafDisplayName("Don Gia")]
+        [XafDisplayName("Đơn giá")]
         public decimal DonGia
         {
             get { return _DonGia; }
@@ -88,7 +88,7 @@ namespace Dat_Do_An.Module.Controllers
         }
 
         private double _Vat;
-        [XafDisplayName("Thue Vat")]
+        [XafDisplayName("Thuế VAT")]
         public double Vat
         {
             get { return _Vat; }
@@ -97,7 +97,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private double _ChietKhau;
-        [XafDisplayName("Chiet Khau")]
+        [XafDisplayName("Chiết khấu")]
         public double ChietKhau
         {
             get { return _ChietKhau; }

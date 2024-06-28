@@ -31,6 +31,10 @@ namespace Dat_Do_An.Module.Controllers
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+            if (Session.IsNewObject(this))
+            {
+                NgayCT = DateTime.Now;
+            }
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
         //private string _PersistentProperty;
@@ -47,6 +51,12 @@ namespace Dat_Do_An.Module.Controllers
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
+
+        protected override void OnSaving()
+        {
+            Tinhtong();
+            base.OnSaving();
+        }
         private KHACHHANG _KHACHHANG;
         [Association("KEY_KHN"), XafDisplayName("Nha Cung Cap")]
         public KHACHHANG KHACHHANG
@@ -119,7 +129,22 @@ namespace Dat_Do_An.Module.Controllers
         {
             get { return GetCollection<DONGNHAP>(nameof(_DONGNHAP)); }
         }
-
+        private decimal _Tongtien;
+        [XafDisplayName("Tổng tiền")]
+        public decimal Tongtien
+        {
+            get { return _Tongtien;}
+            set { SetPropertyValue<decimal>(nameof(Tongtien), ref _Tongtien, value);}
+        }
+        private void Tinhtong()
+        {
+            decimal tong = 0;
+            foreach(DONGNHAP dong in _DONGNHAP)
+            {
+                tong += dong.DonGia;
+            }
+            Tongtien = tong;
+        }
 
     }
 }

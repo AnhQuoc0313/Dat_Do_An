@@ -31,10 +31,18 @@
           <Item Id="NHANVIEN_ListView" ViewId="NHANVIEN_ListView" ObjectKey="" Caption="Nhân viên" ImageName="BO_Person" IsNewNode="True" />
         </Items>
       </Item>
+      <Item Id="@0f9a197a-e391-42da-9a9d-f4b330128933" Caption="Hóa đơn" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="DONGNHAP_ListView" Caption="Đồng nhập" ObjectKey="" ViewId="DONGNHAP_ListView" ImageName="BO_Country_v92" IsNewNode="True" />
+          <Item Id="DONGXUAT_ListView" Caption="Đồng xuất" ObjectKey="" ViewId="DONGXUAT_ListView" ImageName="BO_Appointment" IsNewNode="True" />
+        </Items>
+      </Item>
       <Item Id="Default" Caption="Khác" ImageName="Copy">
         <Items>
           <Item Id="BAOHANH_ListView" Caption="Bảo Hành" ImageName="BO_Audit_ChangeHistory" />
           <Item Id="DANHMUC_ListView" Caption="Danh Mục" ImageName="BO_Category" Removed="True" />
+          <Item Id="DONGNHAP_ListView" Caption="Đồng nhập" ImageName="BO_Country_v92" Removed="True" />
+          <Item Id="DONGXUAT_ListView" Caption="Đồng xuất" ImageName="BO_Appointment" Removed="True" />
           <Item Id="KHACHHANG_ListView" Removed="True" />
           <Item Id="LOAISANPHAM_ListView" Removed="True" />
           <Item Id="NHANVIEN_ListView" Removed="True" />
@@ -57,5 +65,32 @@
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
     <ListView Id="NHOMKHACHHANG_ListView" ImageName="BO_Position" />
+    <DetailView Id="PHIEUNHAP_DetailView">
+      <Items>
+        <PropertyEditor Id="KHACHHANG" PropertyName="KHACHHANG" IsNewNode="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="17.5152749490835">
+            <LayoutGroup Id="PHIEUNHAP" RelativeSize="100">
+              <LayoutGroup Id="PHIEUNHAP_col1" RelativeSize="49.94764397905759">
+                <LayoutItem Id="SoCT" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="NgayCT" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="SoHD" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="KHACHHANG" ViewItem="KHACHHANG" Index="3" RelativeSize="29.032258064516128" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="PHIEUNHAP_col2" RelativeSize="50.05235602094241">
+                <LayoutItem Id="NgayHD" RelativeSize="29.032258064516128" />
+                <LayoutItem Id="Ghichu" RelativeSize="20.967741935483872" />
+                <LayoutItem Id="Tongtien" RelativeSize="50" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="_DONGNHAP_Group" Direction="Vertical" RelativeSize="82.4847250509165">
+            <LayoutItem Id="_DONGNHAP" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
   </Views>
 </Application>
