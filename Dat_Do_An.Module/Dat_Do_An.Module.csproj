@@ -26,4 +26,9 @@
     <PackageReference Include="DevExpress.Persistent.Base" Version="23.2.3" />
     <PackageReference Include="DevExpress.Persistent.BaseImpl.Xpo" Version="23.2.3" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+  </ItemGroup>
 </Project>

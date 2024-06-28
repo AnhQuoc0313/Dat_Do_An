@@ -8,7 +8,6 @@
       <Item Id="@6ebcabd0-e45e-4048-9ad4-4791d2eb448a" Caption="Danh mục đồ ăn" Index="0" ImageName="Shopping_Store" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="DANHMUC_ListView" Caption="Danh Mục" ObjectKey="" ViewId="DANHMUC_ListView" ImageName="Shopping_ShoppingCart" IsNewNode="True" />
-          <Item Id="LOAISANPHAM_ListView" ViewId="LOAISANPHAM_ListView" ObjectKey="" Caption="Loại đồ ăn" ImageName="Travel_Restaurant" IsNewNode="True" />
           <Item Id="SANPHAM_ListView" ViewId="SANPHAM_ListView" ObjectKey="" Caption="Đồ ăn" ImageName="Travel_ReceptionBell" IsNewNode="True" />
         </Items>
       </Item>
@@ -41,12 +40,10 @@
       </Item>
       <Item Id="Default" Caption="Khác" ImageName="Copy">
         <Items>
-          <Item Id="BAOHANH_ListView" Caption="Bảo Hành" ImageName="BO_Audit_ChangeHistory" />
           <Item Id="DANHMUC_ListView" Caption="Danh Mục" ImageName="BO_Category" Removed="True" />
           <Item Id="DONGNHAP_ListView" Caption="Đồng nhập" ImageName="BO_Country_v92" Removed="True" />
           <Item Id="DONGXUAT_ListView" Caption="Đồng xuất" ImageName="BO_Appointment" Removed="True" />
           <Item Id="KHACHHANG_ListView" Removed="True" />
-          <Item Id="LOAISANPHAM_ListView" Removed="True" />
           <Item Id="NHANVIEN_ListView" Removed="True" />
           <Item Id="NHOMKHACHHANG_ListView" Removed="True" />
           <Item Id="PHIEUCHI_ListView" Removed="True" />
@@ -62,7 +59,7 @@
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
   <SchemaModules>
-    <SchemaModule Name="SystemModule" Version="24.1.3.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="23.2.3.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
