@@ -103,18 +103,5 @@ namespace Dat_Do_An.Module.Controllers
             get { return _ChietKhau; }
             set { SetPropertyValue<double>(nameof(ChietKhau), ref _ChietKhau, value); }
         }
-
-
-
-        private BAOHANH _BAOHANH;
-        [Association("KEY_BH_DX")]
-        public BAOHANH BAOHANH
-        {
-            get { return _BAOHANH; }
-            set { SetPropertyValue<BAOHANH>(nameof(BAOHANH), ref _BAOHANH, value); }
-        }
-
-
-
     }
 }

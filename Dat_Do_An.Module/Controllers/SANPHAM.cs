@@ -89,14 +89,6 @@ namespace Dat_Do_An.Module.Controllers
         }
 
 
-        private LOAISANPHAM _LOAISANPHAM;
-        [Association("KEY_LSP")]
-        public LOAISANPHAM LOAISANPHAM
-        {
-            get { return _LOAISANPHAM; }
-            set { SetPropertyValue<LOAISANPHAM>(nameof(LOAISANPHAM), ref _LOAISANPHAM, value); }
-        }
-
 
         private decimal _GiaSP;
         [XafDisplayName("Giá Sản Phẩm")]
