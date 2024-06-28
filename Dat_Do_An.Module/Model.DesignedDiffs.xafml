@@ -18,23 +18,25 @@
           <Item Id="KHACHHANG_ListView" ViewId="KHACHHANG_ListView" ObjectKey="" Caption="Khách hàng" ImageName="BO_Customer" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="@9cd11792-007e-44bf-a130-2291bf120d82" Caption="Phiếu" Index="2" IsNewNode="True">
+      <Item Id="@9cd11792-007e-44bf-a130-2291bf120d82" Caption="Phiếu" Index="2" ImageName="BO_KPI_Scorecard" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="PHIEUCHI_ListView" ViewId="PHIEUCHI_ListView" ObjectKey="" Caption="Phiếu chi" ImageName="BO_Note" IsNewNode="True" />
-          <Item Id="PHIEUNHAP_ListView" ViewId="PHIEUNHAP_ListView" ObjectKey="" Caption="Phiếu nhập" ImageName="BO_KPI_Scorecard" IsNewNode="True" />
+          <Item Id="PHIEUNHAP_ListView" ViewId="PHIEUNHAP_ListView" ObjectKey="" Caption="Phiếu nhập" ImageName="BO_KPI_Scorecard" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="DONGNHAP_ListView" Caption="Đồng nhập" ObjectKey="" ViewId="DONGNHAP_ListView" ImageName="BO_Country_v92" IsNewNode="True" />
+            </Items>
+          </Item>
           <Item Id="PHIEUTHU_ListView" ViewId="PHIEUTHU_ListView" ObjectKey="" ImageName="BO_Report" Caption="Phiếu thu" IsNewNode="True" />
-          <Item Id="PHIEUXUAT_ListView" ViewId="PHIEUXUAT_ListView" ObjectKey="" ImageName="BO_Contract" Caption="Phiếu xuất" IsNewNode="True" />
+          <Item Id="PHIEUXUAT_ListView" ViewId="PHIEUXUAT_ListView" ObjectKey="" ImageName="BO_Contract" Caption="Phiếu xuất" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="DONGXUAT_ListView" Caption="Đồng xuất" ObjectKey="" ViewId="DONGXUAT_ListView" ImageName="BO_Appointment" IsNewNode="True" />
+            </Items>
+          </Item>
         </Items>
       </Item>
       <Item Id="@aa5ed19e-1c72-485c-b1e1-5f7438e69f3b" Caption="Nhân viên" Index="3" ImageName="BO_User" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="NHANVIEN_ListView" ViewId="NHANVIEN_ListView" ObjectKey="" Caption="Nhân viên" ImageName="BO_Person" IsNewNode="True" />
-        </Items>
-      </Item>
-      <Item Id="@0f9a197a-e391-42da-9a9d-f4b330128933" Caption="Hóa đơn" IsNewNode="True">
-        <Items IsNewNode="True">
-          <Item Id="DONGNHAP_ListView" Caption="Đồng nhập" ObjectKey="" ViewId="DONGNHAP_ListView" ImageName="BO_Country_v92" IsNewNode="True" />
-          <Item Id="DONGXUAT_ListView" Caption="Đồng xuất" ObjectKey="" ViewId="DONGXUAT_ListView" ImageName="BO_Appointment" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Default" Caption="Khác" ImageName="Copy">
