@@ -92,6 +92,7 @@ namespace Dat_Do_An.Module.Controllers
 
         private decimal _GiaSP;
         [XafDisplayName("Giá Sản Phẩm")]
+        [ModelDefault("DisplayFormat", "### ### ### ###")]
         public decimal GiaSP
         {
             get { return _GiaSP; }
@@ -128,9 +129,6 @@ namespace Dat_Do_An.Module.Controllers
         {
             get { return GetCollection<DONGXUAT>(nameof(_DONGXUAT)); }
         }
-
-
-
 
 
     }

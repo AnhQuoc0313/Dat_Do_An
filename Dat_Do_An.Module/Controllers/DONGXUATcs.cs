@@ -68,9 +68,6 @@ namespace Dat_Do_An.Module.Controllers
             set { SetPropertyValue<PHIEUXUAT>(nameof(PHIEUXUAT), ref _PHIEUXUAT, value); }
         }
 
-
-
-
         private double _SoLuong;
         [XafDisplayName("Số lượng nhập")]
         public double SoLuong

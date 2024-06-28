@@ -122,5 +122,22 @@ namespace Dat_Do_An.Module.Controllers
         {
             get { return GetCollection<DONGXUAT>(nameof(DONGXUAT)); }
         }
+        private decimal _Tongtien;
+        [XafDisplayName("Tổng tiền")]
+        [ModelDefault("DisplayFormat", "### ### ### ###")]
+        public decimal Tongtien
+        {
+            get { return _Tongtien; }
+            set { SetPropertyValue<decimal>(nameof(Tongtien), ref _Tongtien, value); }
+        }
+        private void Tinhtong()
+        {
+            decimal tong = 0;
+            foreach (DONGXUAT dong in DONGXUAT)
+            {
+                tong += dong.DonGia;
+            }
+            Tongtien = tong;
+        }
     }
 }
