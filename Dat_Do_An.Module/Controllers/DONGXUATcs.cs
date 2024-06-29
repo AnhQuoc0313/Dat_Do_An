@@ -78,27 +78,12 @@ namespace Dat_Do_An.Module.Controllers
 
         private decimal _DonGia;
         [XafDisplayName("Đơn giá")]
+        [ModelDefault("DisplayFormat", "### ### ### ###")]
         public decimal DonGia
         {
             get { return _DonGia; }
             set { SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value); }
         }
 
-        private double _Vat;
-        [XafDisplayName("Thuế VAT")]
-        public double Vat
-        {
-            get { return _Vat; }
-            set { SetPropertyValue<double>(nameof(Vat), ref _Vat, value); }
-        }
-
-
-        private double _ChietKhau;
-        [XafDisplayName("Chiết khấu")]
-        public double ChietKhau
-        {
-            get { return _ChietKhau; }
-            set { SetPropertyValue<double>(nameof(ChietKhau), ref _ChietKhau, value); }
-        }
     }
 }

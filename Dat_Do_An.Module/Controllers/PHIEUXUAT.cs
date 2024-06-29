@@ -69,7 +69,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private DateTime _NgayCT;
-        [XafDisplayName("Ngay Chung Tu")]
+        [XafDisplayName("Ngày chứng từ")]
         [ModelDefault("EditMask", "dd/MM/yyyy HH:mm")]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy HH:mm}")]
         public DateTime NgayCT
@@ -80,7 +80,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private string _SoHD;
-        [Size(50), XafDisplayName("So Hoa Don")]
+        [Size(50), XafDisplayName("Số hóa đơn")]
 
         public string SoHD
         {
@@ -90,7 +90,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private DateTime _NgayHD;
-        [XafDisplayName("Ngay Hoa Don")]
+        [XafDisplayName("Ngày hóa đơn")]
         [ModelDefault("EditMask", "dd/MM/yyyy HH:mm")]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy HH:mm}")]
         public DateTime NgayHD
@@ -109,7 +109,7 @@ namespace Dat_Do_An.Module.Controllers
         }
 
         private string _Ghichu;
-        [Size(50), XafDisplayName("Ghi Chu")]
+        [Size(50), XafDisplayName("Ghi chú")]
         public string Ghichu
         {
             get { return _Ghichu; }
@@ -123,13 +123,18 @@ namespace Dat_Do_An.Module.Controllers
             get { return GetCollection<DONGXUAT>(nameof(DONGXUAT)); }
         }
         private decimal _Tongtien;
+
         [XafDisplayName("Tổng tiền")]
         [ModelDefault("DisplayFormat", "### ### ### ###")]
         public decimal Tongtien
         {
             get { return _Tongtien; }
-            set { SetPropertyValue<decimal>(nameof(Tongtien), ref _Tongtien, value); }
+            set { SetPropertyValue(nameof(Tongtien), ref _Tongtien, value); }
         }
+
+        // Assuming DONGXUAT is a collection of some type that contains DonGia
+       
+
         private void Tinhtong()
         {
             decimal tong = 0;
@@ -139,5 +144,12 @@ namespace Dat_Do_An.Module.Controllers
             }
             Tongtien = tong;
         }
+
+      
+        public void UpdateTotal()
+        {
+            Tinhtong();
+        }
+
     }
 }

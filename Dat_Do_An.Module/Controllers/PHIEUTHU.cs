@@ -60,7 +60,7 @@ namespace Dat_Do_An.Module.Controllers
         }
 
         private string _SoCT;
-        [Size(50), XafDisplayName("So Chung Tu")]
+        [Size(50), XafDisplayName("Số chứng từ")]
         public string SoCT
         {
             get { return _SoCT; }
@@ -69,7 +69,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private DateTime _NgayCT;
-        [XafDisplayName("Ngay Chung Tu")]
+        [XafDisplayName("Ngày chứng từ")]
         [ModelDefault("EditMask", "dd/MM/yyyy HH:mm")]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy HH:mm}")]
         public DateTime NgayCT
@@ -80,7 +80,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private decimal _Sotien;
-        [XafDisplayName("So Tien")]
+        [XafDisplayName("Số tiền")]
         public decimal Sotien
         {
             get { return _Sotien; }
@@ -96,7 +96,7 @@ namespace Dat_Do_An.Module.Controllers
         }
 
         private string _GhiChu;
-        [Size(50), XafDisplayName("Ghi Chu")]
+        [Size(50), XafDisplayName("Ghi Chú")]
         public string GhiChu
         {
             get { return _GhiChu; }
