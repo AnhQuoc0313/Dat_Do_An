@@ -92,7 +92,8 @@ namespace Dat_Do_An.Module.Controllers
 
         private decimal _GiaSP;
         [XafDisplayName("Giá Sản Phẩm")]
-        [ModelDefault("DisplayFormat", "### ### ### ###")]
+        [ModelDefault("DisplayFormat", "{0:n0} VND")]
+        [ModelDefault("EditMask", "n0")]
         public decimal GiaSP
         {
             get { return _GiaSP; }
