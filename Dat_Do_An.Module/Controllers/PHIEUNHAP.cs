@@ -131,6 +131,8 @@ namespace Dat_Do_An.Module.Controllers
         }
         private decimal _Tongtien;
         [XafDisplayName("Tổng tiền")]
+        [ModelDefault("DisplayFormat", "{0:n0} VND")]
+        [ModelDefault("EditMask", "n0")]
         public decimal Tongtien
         {
             get { return _Tongtien;}
@@ -141,7 +143,7 @@ namespace Dat_Do_An.Module.Controllers
             decimal tong = 0;
             foreach(DONGNHAP dong in _DONGNHAP)
             {
-                tong += dong.DonGia;
+                tong += dong.Thanhtien;
             }
             Tongtien = tong;
         }

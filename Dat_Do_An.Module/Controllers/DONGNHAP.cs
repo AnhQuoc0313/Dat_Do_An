@@ -73,15 +73,30 @@ namespace Dat_Do_An.Module.Controllers
         public double SoLuong
         {
             get { return _SoLuong; }
-            set { SetPropertyValue<double>(nameof(SoLuong), ref _SoLuong, value); }
+            set { 
+                
+                    bool isModified = SetPropertyValue<double>(nameof(SoLuong), ref _SoLuong, value); 
+                if(!IsLoading && !IsDeleted && !IsSaving)
+                {
+                    TinhDong();
+                }
+            
+            }
         }
 
         private decimal _DonGia;
         [XafDisplayName("Don Gia")]
+        [ModelDefault("DisplayFormat", "{0:### ### ### ###}")]
         public decimal DonGia
         {
             get { return _DonGia; }
-            set { SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value); }
+            set {
+                bool isModified = SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value);
+                if (!IsLoading && !IsDeleted && !IsSaving)
+                {
+                    TinhDong();
+                }
+            }
         }
 
         private double _Vat;
@@ -89,7 +104,13 @@ namespace Dat_Do_An.Module.Controllers
         public double Vat
         {
             get { return _Vat; }
-            set { SetPropertyValue<double>(nameof(Vat), ref _Vat, value); }
+            set { 
+                bool isModified = SetPropertyValue<double>(nameof(Vat), ref _Vat, value);
+                if (!IsLoading && !IsDeleted && !IsSaving)
+                {
+                    TinhDong();
+                }
+            }
         }
 
 
@@ -98,7 +119,34 @@ namespace Dat_Do_An.Module.Controllers
         public double ChietKhau
         {
             get { return _ChietKhau; }
-            set { SetPropertyValue<double>(nameof(ChietKhau), ref _ChietKhau, value); }
+            set {
+                bool isModified = SetPropertyValue<double>(nameof(ChietKhau), ref _ChietKhau, value);
+                if (!IsLoading && !IsDeleted && !IsSaving)
+                {
+                    TinhDong();
+                }
+            }
+        }
+
+        public decimal _Thanhtien;
+        [XafDisplayName("Thành Tiền"),ModelDefault("AllowEdit","false")]
+        [ModelDefault("DisplayFormat", "{0:n0} VND")]
+        [ModelDefault("EditMask", "n0")]
+
+        public decimal Thanhtien
+        {
+            get { return _Thanhtien; }
+            set { SetPropertyValue<decimal>(nameof(Thanhtien), ref _Thanhtien, value); }
+        }
+        private void TinhDong()
+        {
+            decimal tien = 0;
+            tien = (decimal)SoLuong * DonGia;
+            decimal tienck =(decimal) (ChietKhau / 100) * tien;
+            tien -= tienck;
+            decimal tienvat=(decimal) (Vat/100)*tien;
+            tien += tienvat;
+            Thanhtien = tien;
         }
     }
 }
