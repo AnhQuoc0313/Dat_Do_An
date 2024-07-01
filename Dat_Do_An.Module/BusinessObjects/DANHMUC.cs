@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using Dat_Do_An.Module.BusinessObjects;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
@@ -15,17 +16,16 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    [NavigationItem(true)]
     //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
+    [DefaultProperty("TenDM")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class DONGNHAP : BaseObject
+    public class DANHMUC : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
-        public DONGNHAP(Session session)
+        public DANHMUC(Session session)
             : base(session)
         {
         }
@@ -49,41 +49,22 @@ namespace Dat_Do_An.Module.Controllers
         //    this.PersistentProperty = "Paid";
         //}
 
-        private SANPHAM _SANPHAM;
-        [Association("KEY_SPDN")]
-        public SANPHAM SANPHAM
+        private string _TenDM;
+        [Size(50), XafDisplayName("Tên Doanh Mục")]
+        public string TenDM
         {
-            get { return _SANPHAM; }
-            set { SetPropertyValue<SANPHAM>(nameof(SANPHAM), ref _SANPHAM, value); }
+            get { return _TenDM; }
+            set { SetPropertyValue<string>(nameof(TenDM), ref _TenDM, value); }
         }
 
 
-        private PHIEUNHAP _PHIEUNHAP;
-        [Association("KEY_DONGPN")]
-        public PHIEUNHAP PHIEUNHAP
+        [DevExpress.Xpo.Aggregated, Association("KEY_SP")]
+        public XPCollection<SANPHAM> _SANPHAM
         {
-            get { return _PHIEUNHAP; }
-            set { SetPropertyValue<PHIEUNHAP>(nameof(PHIEUNHAP), ref _PHIEUNHAP, value); }
+            get { return GetCollection<SANPHAM>(nameof(_SANPHAM)); }
         }
 
 
-
-        private double _SoLuong;
-        [XafDisplayName("Số lượng nhập")]
-        public double SoLuong
-        {
-            get { return _SoLuong; }
-            set { SetPropertyValue<double>(nameof(SoLuong), ref _SoLuong, value); }
-        }
-
-        private decimal _DonGia;
-        [XafDisplayName("Đơn giá")]
-        [ModelDefault("DisplayFormat", "### ### ### ###")]
-        public decimal DonGia
-        {
-            get { return _DonGia; }
-            set { SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value); }
-        }
 
     }
 }

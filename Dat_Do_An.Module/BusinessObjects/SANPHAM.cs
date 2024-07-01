@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using Dat_Do_An.Module.Controllers;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
@@ -12,7 +13,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace Dat_Do_An.Module.Controllers
+namespace Dat_Do_An.Module.BusinessObjects
 {
     [DefaultClassOptions]
     //[ImageName("BO_Contact")]
@@ -53,10 +54,10 @@ namespace Dat_Do_An.Module.Controllers
         public DANHMUC DANHMUC
         {
             get { return _DANHMUC; }
-            set { SetPropertyValue<DANHMUC>(nameof(DANHMUC), ref _DANHMUC, value); }
+            set { SetPropertyValue(nameof(DANHMUC), ref _DANHMUC, value); }
         }
 
-        [Delayed(true), VisibleInListViewAttribute(true)]
+        [Delayed(true), VisibleInListView(true)]
         [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PopupPictureEdit,
     DetailViewImageEditorMode = ImageEditorMode.PictureEdit, DetailViewImageEditorFixedHeight = 340, DetailViewImageEditorFixedWidth = 227,
     ListViewImageEditorCustomHeight = 40)]
@@ -64,7 +65,7 @@ namespace Dat_Do_An.Module.Controllers
         public byte[] AnhSP
         {
             get { return GetDelayedPropertyValue<byte[]>(nameof(AnhSP)); }
-            set { SetDelayedPropertyValue<byte[]>(nameof(AnhSP), value); }
+            set { SetDelayedPropertyValue(nameof(AnhSP), value); }
         }
 
 

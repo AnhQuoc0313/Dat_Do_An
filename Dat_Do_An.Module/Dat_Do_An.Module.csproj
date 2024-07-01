@@ -27,6 +27,11 @@
     <PackageReference Include="DevExpress.Persistent.BaseImpl.Xpo" Version="23.2.3" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.ExpressApp.Blazor.v23.2">
+      <HintPath>..\..\..\He_Quan_Tri_Co_So_Du_Lieu\Components\Offline Packages\devexpress.expressapp.blazor\23.2.3\lib\net6.0\DevExpress.ExpressApp.Blazor.v23.2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
     <None Update="UnusableNodes.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
     </None>

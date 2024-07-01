@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using Dat_Do_An.Module.BusinessObjects;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
@@ -15,26 +16,23 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
+    [NavigationItem(true)]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class PHIEUTHU : BaseObject
+    public class DONGXUAT : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
-        public PHIEUTHU(Session session)
+        public DONGXUAT(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            if (Session.IsNewObject(this))
-            {
-                NgayCT = DateTime.Now;
-            }
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
         //private string _PersistentProperty;
@@ -51,56 +49,42 @@ namespace Dat_Do_An.Module.Controllers
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
-        private KHACHHANG _KHACHHANG;
-        [Association("KEY_KHT")]
-        public KHACHHANG KHACHHANG
-        {
-            get { return _KHACHHANG; }
-            set { SetPropertyValue<KHACHHANG>(nameof(KHACHHANG), ref _KHACHHANG, value); }
-        }
 
-        private string _SoCT;
-        [Size(50), XafDisplayName("Số chứng từ")]
-        public string SoCT
+
+        private SANPHAM _SANPHAM;
+        [Association("KEY_SPDX")]
+        public SANPHAM SANPHAM
         {
-            get { return _SoCT; }
-            set { SetPropertyValue<string>(nameof(SoCT), ref _SoCT, value); }
+            get { return _SANPHAM; }
+            set { SetPropertyValue<SANPHAM>(nameof(SANPHAM), ref _SANPHAM, value); }
         }
 
 
-        private DateTime _NgayCT;
-        [XafDisplayName("Ngày chứng từ")]
-        [ModelDefault("EditMask", "dd/MM/yyyy HH:mm")]
-        [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy HH:mm}")]
-        public DateTime NgayCT
+
+        private PHIEUXUAT _PHIEUXUAT;
+        [Association("KEY_DPX")]
+        public PHIEUXUAT PHIEUXUAT
         {
-            get { return _NgayCT; }
-            set { SetPropertyValue<DateTime>(nameof(NgayCT), ref _NgayCT, value); }
+            get { return _PHIEUXUAT; }
+            set { SetPropertyValue<PHIEUXUAT>(nameof(PHIEUXUAT), ref _PHIEUXUAT, value); }
         }
 
-
-        private decimal _Sotien;
-        [XafDisplayName("Số tiền")]
-        public decimal Sotien
+        private double _SoLuong;
+        [XafDisplayName("Số lượng nhập")]
+        public double SoLuong
         {
-            get { return _Sotien; }
-            set { SetPropertyValue<decimal>(nameof(Sotien), ref _Sotien, value); }
+            get { return _SoLuong; }
+            set { SetPropertyValue<double>(nameof(SoLuong), ref _SoLuong, value); }
         }
 
-        private NHANVIEN _NHANVIEN;
-        [Association("KEY_NVT")]
-        public NHANVIEN NHANVIEN
+        private decimal _DonGia;
+        [XafDisplayName("Đơn giá")]
+        [ModelDefault("DisplayFormat", "### ### ### ###")]
+        public decimal DonGia
         {
-            get { return _NHANVIEN; }
-            set { SetPropertyValue<NHANVIEN>(nameof(NHANVIEN), ref _NHANVIEN, value); }
+            get { return _DonGia; }
+            set { SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value); }
         }
 
-        private string _GhiChu;
-        [Size(50), XafDisplayName("Ghi Chú")]
-        public string GhiChu
-        {
-            get { return _GhiChu; }
-            set { SetPropertyValue<string>(nameof(GhiChu), ref _GhiChu, value); }
-        }
     }
 }

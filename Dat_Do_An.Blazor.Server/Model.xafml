@@ -1,7 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
-  <NavigationItems NavigationStyle="Accordion">
-  </NavigationItems>
+  <NavigationItems NavigationStyle="Accordion" />
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="23.2.3.0" IsNewNode="True" />
+  </SchemaModules>
   <Views DefaultListEditor="DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor">
+    <ListView Id="PHIEUCHI_ListView">
+      <Columns>
+        <ColumnInfo Id="SoCT" Width="273" />
+      </Columns>
+    </ListView>
+    <ListView Id="PHIEUTHU_ListView">
+      <Columns>
+        <ColumnInfo Id="SoCT" SortIndex="0" SortOrder="Ascending" Index="0" />
+        <ColumnInfo Id="NgayCT" Index="1" />
+        <ColumnInfo Id="KHACHHANG" Index="2" />
+        <ColumnInfo Id="NHANVIEN" Index="3" />
+        <ColumnInfo Id="GhiChu" Index="4" />
+        <ColumnInfo Id="Sotien" Index="5" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>
