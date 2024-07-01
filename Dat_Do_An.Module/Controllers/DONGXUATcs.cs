@@ -81,6 +81,7 @@ namespace Dat_Do_An.Module.Controllers
 
         [ModelDefault("DisplayFormat", "### ### ### ###")]
 
+        [ModelDefault("DisplayFormat", "### ### ### ###")]
         public decimal DonGia
         {
             get { return _DonGia; }

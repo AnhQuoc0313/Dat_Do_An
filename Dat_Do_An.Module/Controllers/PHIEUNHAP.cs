@@ -131,9 +131,6 @@ namespace Dat_Do_An.Module.Controllers
         }
         private decimal _Tongtien;
         [XafDisplayName("Tổng tiền")]
-
-        [ModelDefault("DisplayFormat", "### ### ### ###")]
-
         public decimal Tongtien
         {
             get { return _Tongtien;}

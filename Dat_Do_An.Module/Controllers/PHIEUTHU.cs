@@ -80,9 +80,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private decimal _Sotien;
-
-        [XafDisplayName("Số tiền")]
-
+        [XafDisplayName("So Tien")]
         public decimal Sotien
         {
             get { return _Sotien; }
