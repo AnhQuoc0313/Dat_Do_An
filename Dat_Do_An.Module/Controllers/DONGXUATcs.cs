@@ -68,9 +68,6 @@ namespace Dat_Do_An.Module.Controllers
             set { SetPropertyValue<PHIEUXUAT>(nameof(PHIEUXUAT), ref _PHIEUXUAT, value); }
         }
 
-
-
-
         private double _SoLuong;
         [XafDisplayName("Số lượng nhập")]
         public double SoLuong
@@ -81,29 +78,14 @@ namespace Dat_Do_An.Module.Controllers
 
         private decimal _DonGia;
         [XafDisplayName("Đơn giá")]
-        [ModelDefault("DisplayFormat", "{0:n0} VND")]
-        [ModelDefault("EditMask", "n0")]
+
+        [ModelDefault("DisplayFormat", "### ### ### ###")]
+
         public decimal DonGia
         {
             get { return _DonGia; }
             set { SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value); }
         }
 
-        private double _Vat;
-        [XafDisplayName("Thuế VAT")]
-        public double Vat
-        {
-            get { return _Vat; }
-            set { SetPropertyValue<double>(nameof(Vat), ref _Vat, value); }
-        }
-
-
-        private double _ChietKhau;
-        [XafDisplayName("Chiết khấu")]
-        public double ChietKhau
-        {
-            get { return _ChietKhau; }
-            set { SetPropertyValue<double>(nameof(ChietKhau), ref _ChietKhau, value); }
-        }
     }
 }

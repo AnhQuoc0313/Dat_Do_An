@@ -58,7 +58,7 @@ namespace Dat_Do_An.Module.Controllers
             base.OnSaving();
         }
         private KHACHHANG _KHACHHANG;
-        [Association("KEY_KHN"), XafDisplayName("Nha Cung Cap")]
+        [Association("KEY_KHN"), XafDisplayName("Nhà cung cấp")]
         public KHACHHANG KHACHHANG
         {
             get { return _KHACHHANG; }
@@ -67,7 +67,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private string _SoCT;
-        [Size(50), XafDisplayName("So Chung Tu")]
+        [Size(50), XafDisplayName("Số chứng từ")]
         public string SoCT
         {
             get { return _SoCT; }
@@ -76,7 +76,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private DateTime _NgayCT;
-        [XafDisplayName("Ngay Chung Tu")]
+        [XafDisplayName("Ngày chưng từ")]
         [ModelDefault("EditMask", "dd/MM/yyyy HH:mm")]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy HH:mm}")]
         public DateTime NgayCT
@@ -87,7 +87,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private string _SoHD;
-        [Size(50), XafDisplayName("So Hoa Don")]
+        [Size(50), XafDisplayName("Số hóa đơn")]
 
         public string SoHD
         {
@@ -97,7 +97,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private DateTime _NgayHD;
-        [XafDisplayName("Ngay Hoa Don")]
+        [XafDisplayName("Ngày in hóa đơn")]
         [ModelDefault("EditMask", "dd/MM/yyyy HH:mm")]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy HH:mm}")]
         public DateTime NgayHD
@@ -117,7 +117,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private string _Ghichu;
-        [Size(50), XafDisplayName("Ghi Chu")]
+        [Size(50), XafDisplayName("Ghi chú")]
         public string Ghichu
         {
             get { return _Ghichu; }
@@ -131,8 +131,9 @@ namespace Dat_Do_An.Module.Controllers
         }
         private decimal _Tongtien;
         [XafDisplayName("Tổng tiền")]
-        [ModelDefault("DisplayFormat", "{0:n0} VND")]
-        [ModelDefault("EditMask", "n0")]
+
+        [ModelDefault("DisplayFormat", "### ### ### ###")]
+
         public decimal Tongtien
         {
             get { return _Tongtien;}

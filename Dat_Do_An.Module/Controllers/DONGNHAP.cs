@@ -69,7 +69,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private double _SoLuong;
-        [XafDisplayName("So Luong Nhap")]
+        [XafDisplayName("Số lượng nhập")]
         public double SoLuong
         {
             get { return _SoLuong; }
@@ -85,8 +85,13 @@ namespace Dat_Do_An.Module.Controllers
         }
 
         private decimal _DonGia;
+<<<<<<< HEAD
         [XafDisplayName("Don Gia")]
         [ModelDefault("DisplayFormat", "{0:### ### ### ###}")]
+=======
+        [XafDisplayName("Đơn giá")]
+        [ModelDefault("DisplayFormat", "### ### ### ###")]
+>>>>>>> a799cc0daa9d2a902dab2e6c795afdc0c8a849d3
         public decimal DonGia
         {
             get { return _DonGia; }
@@ -99,6 +104,7 @@ namespace Dat_Do_An.Module.Controllers
             }
         }
 
+<<<<<<< HEAD
         private double _Vat;
         [XafDisplayName("Thue Vat")]
         public double Vat
@@ -148,5 +154,7 @@ namespace Dat_Do_An.Module.Controllers
             tien += tienvat;
             Thanhtien = tien;
         }
+=======
+>>>>>>> a799cc0daa9d2a902dab2e6c795afdc0c8a849d3
     }
 }
