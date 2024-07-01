@@ -13,6 +13,9 @@ using DevExpress.ExpressApp.Model.DomainLogics;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.Xpo;
 using DevExpress.ExpressApp.Xpo;
+using Dat_Do_An.Module.BusinessObjects;
+using Dat_Do_An.Module.Controllers;
+using DevExpress.ExpressApp.ReportsV2;
 
 namespace Dat_Do_An.Module;
 
@@ -30,9 +33,19 @@ public sealed class Dat_Do_AnModule : ModuleBase {
 		RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule));
 		RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.ValidationModule));
     }
-    public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
+    public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
+    {
         ModuleUpdater updater = new DatabaseUpdate.Updater(objectSpace, versionFromDB);
-        return new ModuleUpdater[] { updater };
+        PredefinedReportsUpdater predefinedReportsUpdater = new(Application, objectSpace, versionFromDB)
+        {
+            UseMultipleUpdaters = true
+        };
+        predefinedReportsUpdater.AddPredefinedReport<RptPhieuChi>("pchi", typeof(PHIEUCHI));
+        predefinedReportsUpdater.AddPredefinedReport<RptPhieuThu>("pthu", typeof(PHIEUTHU));
+        predefinedReportsUpdater.AddPredefinedReport<Phieuxuat1>("pxuat", typeof(PHIEUXUAT));
+        predefinedReportsUpdater.AddPredefinedReport<Phieunhap1>("pnhap", typeof(PHIEUNHAP));
+        return new ModuleUpdater[] { updater, predefinedReportsUpdater };
+       
     }
     public override void Setup(XafApplication application) {
         base.Setup(application);
