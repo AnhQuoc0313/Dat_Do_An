@@ -79,6 +79,9 @@ namespace Dat_Do_An.Module.Controllers
 
         private decimal _DonGia;
         [XafDisplayName("Đơn giá")]
+
+        [ModelDefault("DisplayFormat", "### ### ### ###")]
+
         [ModelDefault("DisplayFormat", "### ### ### ###")]
         public decimal DonGia
         {

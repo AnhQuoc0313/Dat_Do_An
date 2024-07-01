@@ -83,8 +83,6 @@ namespace Dat_Do_An.Module.Controllers
 
         private decimal _Sotien;
         [XafDisplayName("Số tiền")]
-        [ModelDefault("DisplayFormat", "{0:n0} VND")]
-        [ModelDefault("EditMask", "n0")]
         public decimal Sotien
         {
             get { return _Sotien; }
