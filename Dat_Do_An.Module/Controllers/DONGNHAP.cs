@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using Dat_Do_An.Module.BusinessObjects;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
@@ -73,88 +74,17 @@ namespace Dat_Do_An.Module.Controllers
         public double SoLuong
         {
             get { return _SoLuong; }
-            set { 
-                
-                    bool isModified = SetPropertyValue<double>(nameof(SoLuong), ref _SoLuong, value); 
-                if(!IsLoading && !IsDeleted && !IsSaving)
-                {
-                    TinhDong();
-                }
-            
-            }
+            set { SetPropertyValue<double>(nameof(SoLuong), ref _SoLuong, value); }
         }
 
         private decimal _DonGia;
-<<<<<<< HEAD
-        [XafDisplayName("Don Gia")]
-        [ModelDefault("DisplayFormat", "{0:### ### ### ###}")]
-=======
         [XafDisplayName("Đơn giá")]
         [ModelDefault("DisplayFormat", "### ### ### ###")]
->>>>>>> a799cc0daa9d2a902dab2e6c795afdc0c8a849d3
         public decimal DonGia
         {
             get { return _DonGia; }
-            set {
-                bool isModified = SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value);
-                if (!IsLoading && !IsDeleted && !IsSaving)
-                {
-                    TinhDong();
-                }
-            }
+            set { SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value); }
         }
 
-<<<<<<< HEAD
-        private double _Vat;
-        [XafDisplayName("Thue Vat")]
-        public double Vat
-        {
-            get { return _Vat; }
-            set { 
-                bool isModified = SetPropertyValue<double>(nameof(Vat), ref _Vat, value);
-                if (!IsLoading && !IsDeleted && !IsSaving)
-                {
-                    TinhDong();
-                }
-            }
-        }
-
-
-        private double _ChietKhau;
-        [XafDisplayName("Chiet Khau")]
-        public double ChietKhau
-        {
-            get { return _ChietKhau; }
-            set {
-                bool isModified = SetPropertyValue<double>(nameof(ChietKhau), ref _ChietKhau, value);
-                if (!IsLoading && !IsDeleted && !IsSaving)
-                {
-                    TinhDong();
-                }
-            }
-        }
-
-        public decimal _Thanhtien;
-        [XafDisplayName("Thành Tiền"),ModelDefault("AllowEdit","false")]
-        [ModelDefault("DisplayFormat", "{0:n0} VND")]
-        [ModelDefault("EditMask", "n0")]
-
-        public decimal Thanhtien
-        {
-            get { return _Thanhtien; }
-            set { SetPropertyValue<decimal>(nameof(Thanhtien), ref _Thanhtien, value); }
-        }
-        private void TinhDong()
-        {
-            decimal tien = 0;
-            tien = (decimal)SoLuong * DonGia;
-            decimal tienck =(decimal) (ChietKhau / 100) * tien;
-            tien -= tienck;
-            decimal tienvat=(decimal) (Vat/100)*tien;
-            tien += tienvat;
-            Thanhtien = tien;
-        }
-=======
->>>>>>> a799cc0daa9d2a902dab2e6c795afdc0c8a849d3
     }
 }

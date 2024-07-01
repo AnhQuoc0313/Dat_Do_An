@@ -54,7 +54,7 @@ namespace Dat_Do_An.Module.Controllers
 
         protected override void OnSaving()
         {
-            Tinhtong();
+           
             base.OnSaving();
         }
         private KHACHHANG _KHACHHANG;
@@ -139,15 +139,7 @@ namespace Dat_Do_An.Module.Controllers
             get { return _Tongtien;}
             set { SetPropertyValue<decimal>(nameof(Tongtien), ref _Tongtien, value);}
         }
-        private void Tinhtong()
-        {
-            decimal tong = 0;
-            foreach(DONGNHAP dong in _DONGNHAP)
-            {
-                tong += dong.Thanhtien;
-            }
-            Tongtien = tong;
-        }
+    
 
     }
 }
