@@ -43,7 +43,7 @@ public sealed class Dat_Do_AnModule : ModuleBase {
         predefinedReportsUpdater.AddPredefinedReport<RptPhieuChi>("pchi", typeof(PHIEUCHI));
         predefinedReportsUpdater.AddPredefinedReport<RptPhieuThu>("pthu", typeof(PHIEUTHU));
         predefinedReportsUpdater.AddPredefinedReport<Phieuxuat1>("pxuat", typeof(PHIEUXUAT));
-        predefinedReportsUpdater.AddPredefinedReport<Phieunhap1>("pnhap", typeof(PHIEUNHAP));
+       
         return new ModuleUpdater[] { updater, predefinedReportsUpdater };
        
     }
