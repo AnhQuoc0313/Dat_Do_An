@@ -70,7 +70,38 @@
   </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <DetailView Id="DONGNHAP_DetailView">
+      <Items>
+        <PropertyEditor Id="SANPHAM" PropertyName="SANPHAM" IsNewNode="True" />
+        <PropertyEditor Id="SANPHAM.TenSP" PropertyName="SANPHAM.TenSP" IsNewNode="True" />
+      </Items>
+    </DetailView>
+    <DetailView Id="DONGXUAT_DetailView">
+      <Items>
+        <PropertyEditor Id="PHIEUXUAT" PropertyName="PHIEUXUAT" IsNewNode="True" />
+        <PropertyEditor Id="SANPHAM" PropertyName="SANPHAM" IsNewNode="True" />
+        <PropertyEditor Id="SANPHAM.GiaSP" PropertyName="SANPHAM.GiaSP" IsNewNode="True" />
+        <PropertyEditor Id="SANPHAM.TenSP" PropertyName="SANPHAM.TenSP" IsNewNode="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="DONGXUAT" RelativeSize="100">
+              <LayoutItem Id="SoLuong" RelativeSize="3.8876889848812093" />
+              <LayoutItem Id="SANPHAM.TenSP" ViewItem="SANPHAM.TenSP" Index="1" RelativeSize="2.8077753779697625" IsNewNode="True" />
+              <LayoutItem Id="PHIEUXUAT" ViewItem="PHIEUXUAT" Index="2" RelativeSize="2.8077753779697625" IsNewNode="True" />
+              <LayoutItem Id="DonGia" RelativeSize="90.49676025917927" Index="3" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="NHOMKHACHHANG_ListView" ImageName="BO_Position" />
+    <ListView Id="PHIEUNHAP__DONGNHAP_ListView">
+      <Columns>
+        <ColumnInfo Id="DonGia" SortIndex="0" SortOrder="Ascending" />
+      </Columns>
+    </ListView>
     <DetailView Id="PHIEUNHAP_DetailView">
       <Items>
         <PropertyEditor Id="KHACHHANG" PropertyName="KHACHHANG" IsNewNode="True" />
@@ -94,6 +125,41 @@
           </LayoutGroup>
           <LayoutGroup Id="_DONGNHAP_Group" Direction="Vertical" RelativeSize="82.4847250509165">
             <LayoutItem Id="_DONGNHAP" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="PHIEUTHU_DetailView">
+      <Items>
+        <PropertyEditor Id="KHACHHANG" PropertyName="KHACHHANG" IsNewNode="True" />
+        <PropertyEditor Id="NHANVIEN" PropertyName="NHANVIEN" IsNewNode="True" />
+        <PropertyEditor Id="NHANVIEN.TenNV" PropertyName="NHANVIEN.TenNV" IsNewNode="True" />
+      </Items>
+    </DetailView>
+    <DetailView Id="PHIEUXUAT_DetailView">
+      <Items>
+        <PropertyEditor Id="KHACHHANG" PropertyName="KHACHHANG" IsNewNode="True" />
+        <PropertyEditor Id="KHACHHANG.TenKH" PropertyName="KHACHHANG.TenKH" IsNewNode="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="18.62348178137652">
+            <LayoutGroup Id="PHIEUXUAT" RelativeSize="100">
+              <LayoutGroup Id="PHIEUXUAT_col1" RelativeSize="49.945593035908594">
+                <LayoutItem Id="SoCT" RelativeSize="36.170212765957444" />
+                <LayoutItem Id="NgayCT" RelativeSize="27.659574468085108" />
+                <LayoutItem Id="SoHD" RelativeSize="36.170212765957444" />
+              </LayoutGroup>
+              <LayoutGroup Id="PHIEUXUAT_col2" RelativeSize="50.054406964091406">
+                <LayoutItem Id="NgayHD" RelativeSize="36.170212765957444" />
+                <LayoutItem Id="Ghichu" RelativeSize="27.659574468085108" />
+                <LayoutItem Id="Tongtien" RelativeSize="36.170212765957444" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutItem Id="KHACHHANG.TenKH" ViewItem="KHACHHANG.TenKH" Index="1" RelativeSize="3.508771929824561" IsNewNode="True" />
+          <LayoutGroup Id="DONGXUAT_Group" Direction="Vertical" Index="2" RelativeSize="77.86774628879893">
+            <LayoutItem Id="DONGXUAT" RelativeSize="100" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>

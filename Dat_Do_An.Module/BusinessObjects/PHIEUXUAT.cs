@@ -135,25 +135,7 @@ namespace Dat_Do_An.Module.Controllers
             get { return _Tongtien; }
             set { SetPropertyValue(nameof(Tongtien), ref _Tongtien, value); }
         }
-
-        
-       
-
-        private void Tinhtong()
-        {
-            decimal tong = 0;
-            foreach (DONGXUAT dong in DONGXUAT)
-            {
-                tong += dong.DonGia;
-            }
-            Tongtien = tong;
-        }
-
-      
-        public void UpdateTotal()
-        {
-            Tinhtong();
-        }
+   
 
     }
 }

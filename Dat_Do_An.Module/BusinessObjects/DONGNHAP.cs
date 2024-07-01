@@ -77,7 +77,10 @@ namespace Dat_Do_An.Module.Controllers
         public double SoLuong
         {
             get { return _SoLuong; }
-            set { SetPropertyValue<double>(nameof(SoLuong), ref _SoLuong, value); }
+            set { 
+                   bool isModified = SetPropertyValue<double>(nameof(SoLuong), ref _SoLuong, value); 
+                if(!IsLoading && !IsDeleted && !IsSaving) { Tinhtong(); }
+                }
         }
 
         private decimal _DonGia;
@@ -87,8 +90,27 @@ namespace Dat_Do_An.Module.Controllers
         public decimal DonGia
         {
             get { return _DonGia; }
-            set { SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value); }
+            set {
+                bool isModified = SetPropertyValue<decimal>(nameof(DonGia), ref _DonGia, value);
+                if (!IsLoading && !IsDeleted && !IsSaving) { Tinhtong(); }
+            }
+        }
+        private decimal _Thanhtien;
+        [XafDisplayName("Thành tiền"),ModelDefault("AllowEdit","false")]
+        [ModelDefault("DisplayFormat", "{0:n0} VND")]
+        [ModelDefault("EditMask", "n0")]
+        public decimal Thanhtien
+        {
+            get { return _Thanhtien; }
+            set { SetPropertyValue<decimal>(nameof(Thanhtien), ref _Thanhtien, value); }
+        }
+        private void Tinhtong()
+        {
+            decimal tong = 0;
+            tong = (decimal)SoLuong * DonGia;
+            Thanhtien = tong;
         }
 
+             
     }
 }
