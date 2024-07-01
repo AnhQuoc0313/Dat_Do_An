@@ -15,7 +15,8 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
+    [ImageName("BO_Department")]
+    [System.ComponentModel.DisplayName("Nhóm Khách Hàng")]
     [DefaultProperty("TenNhomKH")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
@@ -49,6 +50,7 @@ namespace Dat_Do_An.Module.Controllers
         //}
 
         private string _TenNhomKH;
+        [Size(50), XafDisplayName("Tên Nhóm Khách Hàng")]
         public string TenNhomKH
         {
             get { return _TenNhomKH; }

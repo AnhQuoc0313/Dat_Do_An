@@ -15,9 +15,10 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
+    [System.ComponentModel.DisplayName("Phiếu Thu")]
     [DefaultProperty("SoCT")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
-    //[ImageName("BO_Contact")]
+    [ImageName("BO_Report")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
@@ -55,6 +56,7 @@ namespace Dat_Do_An.Module.Controllers
         //}
         private KHACHHANG _KHACHHANG;
         [Association("KEY_KHT")]
+        [Size(50), XafDisplayName("Khách Hàng")]
         public KHACHHANG KHACHHANG
         {
             get { return _KHACHHANG; }
@@ -83,6 +85,8 @@ namespace Dat_Do_An.Module.Controllers
 
         private decimal _Sotien;
         [XafDisplayName("Số tiền")]
+        [ModelDefault("DisplayFormat", "{0:n0} VND")]
+        [ModelDefault("EditMask", "n0")]
         public decimal Sotien
         {
             get { return _Sotien; }
@@ -91,6 +95,7 @@ namespace Dat_Do_An.Module.Controllers
 
         private NHANVIEN _NHANVIEN;
         [Association("KEY_NVT")]
+        [Size(50), XafDisplayName("Nhân Viên")]
         public NHANVIEN NHANVIEN
         {
             get { return _NHANVIEN; }

@@ -15,7 +15,8 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
+    [ImageName("BO_Person")]
+    [System.ComponentModel.DisplayName("Nhân Viên")]
     [DefaultProperty("TenNV")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]

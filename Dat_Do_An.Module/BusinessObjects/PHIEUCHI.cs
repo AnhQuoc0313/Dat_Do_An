@@ -15,7 +15,8 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
+    [ImageName("BO_Note")]
+    [System.ComponentModel.DisplayName("Phiếu Chi")]
     [DefaultProperty("SoCT")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
@@ -55,6 +56,7 @@ namespace Dat_Do_An.Module.Controllers
         //}
         private KHACHHANG _KHACHHANG;
         [Association("KEY_KHC")]
+        [Size(50), XafDisplayName("Khách Hàng")]
         public KHACHHANG KHACHHANG
         {
             get { return _KHACHHANG; }
@@ -63,7 +65,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private string _SoCT;
-        [Size(50), XafDisplayName("So Chung Tu")]
+        [Size(50), XafDisplayName("Số Chứng Từ")]
         public string SoCT
         {
             get { return _SoCT; }
@@ -72,7 +74,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private DateTime _NgayCT;
-        [XafDisplayName("Ngay Chung Tu")]
+        [XafDisplayName("Ngày Chứng Từ")]
         [ModelDefault("EditMask", "dd/MM/yyyy HH:mm")]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy HH:mm}")]
         public DateTime NgayCT
@@ -83,7 +85,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private decimal _Sotien;
-        [XafDisplayName("So Tien")]
+        [XafDisplayName("Số Tiền")]
         [ModelDefault("DisplayFormat", "{0:n0} VND")]
         [ModelDefault("EditMask", "n0")]
         public decimal Sotien
@@ -94,6 +96,7 @@ namespace Dat_Do_An.Module.Controllers
 
         private NHANVIEN _NHANVIEN;
         [Association("KEY_NVC")]
+        [Size(50), XafDisplayName("Nhân Viên")]
         public NHANVIEN NHANVIEN
         {
             get { return _NHANVIEN; }
@@ -102,7 +105,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private string _GhiChu;
-        [Size(50), XafDisplayName("Ghi Chu")]
+        [Size(50), XafDisplayName("Ghi Chú")]
         public string GhiChu
         {
             get { return _GhiChu; }

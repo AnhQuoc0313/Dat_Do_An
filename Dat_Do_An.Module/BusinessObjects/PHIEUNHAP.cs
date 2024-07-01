@@ -15,8 +15,9 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
-     [DefaultProperty("SoCT")]
+    [ImageName("BO_KPI_Scorecard")]
+    [System.ComponentModel.DisplayName("Phiếu Nhập")]
+    [DefaultProperty("SoCT")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
@@ -76,7 +77,7 @@ namespace Dat_Do_An.Module.Controllers
 
 
         private DateTime _NgayCT;
-        [XafDisplayName("Ngày chưng từ")]
+        [XafDisplayName("Ngày chứng từ")]
         [ModelDefault("EditMask", "dd/MM/yyyy HH:mm")]
         [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy HH:mm}")]
         public DateTime NgayCT
@@ -109,6 +110,7 @@ namespace Dat_Do_An.Module.Controllers
 
         private NHANVIEN _NHANVIEN;
         [Association("KEY_NVN")]
+        [Size(50), XafDisplayName("Nhân Viên")]
         public NHANVIEN NHANVIEN
         {
             get { return _NHANVIEN; }
@@ -131,6 +133,8 @@ namespace Dat_Do_An.Module.Controllers
         }
         private decimal _Tongtien;
         [XafDisplayName("Tổng tiền")]
+        [ModelDefault("DisplayFormat", "{0:n0} VND")]
+        [ModelDefault("EditMask", "n0")]
         public decimal Tongtien
         {
             get { return _Tongtien;}

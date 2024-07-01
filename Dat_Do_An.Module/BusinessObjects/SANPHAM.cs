@@ -16,7 +16,8 @@ using System.Text;
 namespace Dat_Do_An.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
+    [ImageName("Travel_ReceptionBell")]
+    [System.ComponentModel.DisplayName("Đồ Ăn")]
     [DefaultProperty("TenSP")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
@@ -51,6 +52,7 @@ namespace Dat_Do_An.Module.BusinessObjects
 
         private DANHMUC _DANHMUC;
         [Association("KEY_SP")]
+        [Size(50), XafDisplayName("Danh Mục")]
         public DANHMUC DANHMUC
         {
             get { return _DANHMUC; }
@@ -70,7 +72,7 @@ namespace Dat_Do_An.Module.BusinessObjects
 
 
         private string _MaSP;
-        [Size(50), XafDisplayName("Mã Sản Phẩm")]
+        [Size(50), XafDisplayName("Mã Món")]
         [RuleRequiredField("SANPHAM", DefaultContexts.Save, "MSP khong duoc de trong")]
         [RuleUniqueValue, Indexed(Unique = true)]
         public string MaSP
@@ -82,7 +84,7 @@ namespace Dat_Do_An.Module.BusinessObjects
 
 
         private string _TenSP;
-        [Size(50), XafDisplayName("Tên Sản Phẩm")]
+        [Size(50), XafDisplayName("Tên Món")]
         public string TenSP
         {
             get { return _TenSP; }
@@ -92,7 +94,7 @@ namespace Dat_Do_An.Module.BusinessObjects
 
 
         private decimal _GiaSP;
-        [XafDisplayName("Giá Sản Phẩm")]
+        [XafDisplayName("Giá Món")]
         [ModelDefault("DisplayFormat", "{0:n0} VND")]
         [ModelDefault("EditMask", "n0")]
         public decimal GiaSP
@@ -103,7 +105,7 @@ namespace Dat_Do_An.Module.BusinessObjects
 
 
         private int _SoLuong;
-        [XafDisplayName("Số Lượng Sản Phẩm")]
+        [XafDisplayName("Số Lượng Món")]
         public int SoLuong
         {
             get { return _SoLuong; }
@@ -112,7 +114,7 @@ namespace Dat_Do_An.Module.BusinessObjects
 
 
         private string _MieuTaSP;
-        [Size(50), XafDisplayName("Miêu Tả Sản Phẩm")]
+        [Size(50), XafDisplayName("Miêu Tả Món")]
         public string MieuTaSP
         {
             get { return _MieuTaSP; }

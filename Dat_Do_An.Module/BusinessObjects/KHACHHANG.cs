@@ -15,7 +15,8 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
+    [ImageName("BO_Customer")]
+    [System.ComponentModel.DisplayName("Khách Hàng")]
     [DefaultProperty("TenKH")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
@@ -96,6 +97,7 @@ namespace Dat_Do_An.Module.Controllers
 
         private NHOMKHACHHANG _NHOMKHACHHANG;
         [Association("KEY_KH")]
+        [Size(50), XafDisplayName("Nhóm Khách Hàng")]
         public NHOMKHACHHANG NHOMKHACHHANG
         {
             get { return _NHOMKHACHHANG; }

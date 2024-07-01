@@ -17,7 +17,8 @@ namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
     [NavigationItem(true)]
-    //[ImageName("BO_Contact")]
+    [ImageName("BO_Appointment")]
+    [System.ComponentModel.DisplayName("Dòng Xuất")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
@@ -53,6 +54,7 @@ namespace Dat_Do_An.Module.Controllers
 
         private SANPHAM _SANPHAM;
         [Association("KEY_SPDX")]
+        [Size(50), XafDisplayName("Đồ Ăn")]
         public SANPHAM SANPHAM
         {
             get { return _SANPHAM; }
@@ -63,6 +65,7 @@ namespace Dat_Do_An.Module.Controllers
 
         private PHIEUXUAT _PHIEUXUAT;
         [Association("KEY_DPX")]
+        [Size(50), XafDisplayName("Phiếu Xuất")]
         public PHIEUXUAT PHIEUXUAT
         {
             get { return _PHIEUXUAT; }
@@ -79,10 +82,9 @@ namespace Dat_Do_An.Module.Controllers
 
         private decimal _DonGia;
         [XafDisplayName("Đơn giá")]
+        [ModelDefault("DisplayFormat", "{0:n0} VND")]
+        [ModelDefault("EditMask", "n0")]
 
-        [ModelDefault("DisplayFormat", "### ### ### ###")]
-
-        [ModelDefault("DisplayFormat", "### ### ### ###")]
         public decimal DonGia
         {
             get { return _DonGia; }

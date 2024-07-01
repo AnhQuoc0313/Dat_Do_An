@@ -1,13 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Dat_Do_An" Logo="Business_World">
   <BOModel>
-    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyActionPermissionObject" ImageName="BO_Address" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyMemberPermissionsObject" ImageName="BO_Address" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyNavigationPermissionObject" ImageName="BO_Address" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyObjectPermissionsObject" ImageName="BO_Address" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole" ImageName="BO_Address" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRoleBase" ImageName="BO_Address" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyTypePermissionObject" ImageName="BO_Address" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" ImageName="BO_Address" />
   </BOModel>
-  <NavigationItems>
+  <NavigationItems DefaultLeafImageName="BO_Address" DefaultParentImageName="Business_Bank">
     <Items>
       <Item Id="@6ebcabd0-e45e-4048-9ad4-4791d2eb448a" Caption="Danh mục đồ ăn" Index="0" ImageName="Shopping_Store" IsNewNode="True">
         <Items IsNewNode="True">
-          <Item Id="DANHMUC_ListView" Caption="Danh Mục" ObjectKey="" ViewId="DANHMUC_ListView" ImageName="Shopping_ShoppingCart" IsNewNode="True" />
+          <Item Id="DANHMUC_ListView" Caption="Danh Mục Món" ObjectKey="" ViewId="DANHMUC_ListView" ImageName="Shopping_ShoppingCart" IsNewNode="True" />
           <Item Id="SANPHAM_ListView" ViewId="SANPHAM_ListView" ObjectKey="" Caption="Đồ ăn" ImageName="Travel_ReceptionBell" IsNewNode="True" />
         </Items>
       </Item>

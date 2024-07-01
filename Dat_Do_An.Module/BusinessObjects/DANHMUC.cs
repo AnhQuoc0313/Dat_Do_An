@@ -16,7 +16,8 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
+    [ImageName("Shopping_ShoppingCart")]
+    [System.ComponentModel.DisplayName("Danh Mục Món")]
     [DefaultProperty("TenDM")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
@@ -50,7 +51,7 @@ namespace Dat_Do_An.Module.Controllers
         //}
 
         private string _TenDM;
-        [Size(50), XafDisplayName("Tên Doanh Mục")]
+        [Size(50), XafDisplayName("Danh Mục Món")]
         public string TenDM
         {
             get { return _TenDM; }

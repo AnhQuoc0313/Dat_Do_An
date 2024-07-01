@@ -15,7 +15,8 @@ using System.Text;
 namespace Dat_Do_An.Module.Controllers
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
+    [System.ComponentModel.DisplayName("Phiếu Xuất")]
+    [ImageName("BO_Contract")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
@@ -53,6 +54,7 @@ namespace Dat_Do_An.Module.Controllers
         //}
         private KHACHHANG _KHACHHANG;
         [Association("KEY_KHX")]
+        [Size(50), XafDisplayName("Khách Hàng")]
         public KHACHHANG KHACHHANG
         {
             get { return _KHACHHANG; }
@@ -60,7 +62,7 @@ namespace Dat_Do_An.Module.Controllers
         }
 
         private string _SoCT;
-        [Size(50), XafDisplayName("So Chung Tu")]
+        [Size(50), XafDisplayName("Số chứng từ")]
         public string SoCT
         {
             get { return _SoCT; }
@@ -102,6 +104,7 @@ namespace Dat_Do_An.Module.Controllers
 
         private NHANVIEN _NHANVIEN;
         [Association("KEY_NVX")]
+        [Size(50), XafDisplayName("Nhân Viên")]
         public NHANVIEN NHANVIEN
         {
             get { return _NHANVIEN; }
@@ -125,7 +128,8 @@ namespace Dat_Do_An.Module.Controllers
         private decimal _Tongtien;
 
         [XafDisplayName("Tổng tiền")]
-        [ModelDefault("DisplayFormat", "### ### ### ###")]
+        [ModelDefault("DisplayFormat", "{0:n0} VND")]
+        [ModelDefault("EditMask", "n0")]
         public decimal Tongtien
         {
             get { return _Tongtien; }
