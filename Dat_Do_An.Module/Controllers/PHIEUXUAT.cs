@@ -132,7 +132,7 @@ namespace Dat_Do_An.Module.Controllers
             set { SetPropertyValue(nameof(Tongtien), ref _Tongtien, value); }
         }
 
-        // Assuming DONGXUAT is a collection of some type that contains DonGia
+        
        
 
         private void Tinhtong()
