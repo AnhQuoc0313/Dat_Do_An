@@ -39,8 +39,11 @@ public sealed class Dat_Do_AnModule : ModuleBase {
             UseMultipleUpdaters = true
         };
         predefinedReportsUpdater.AddPredefinedReport<Phieuxuat1>("pxuat", typeof(PHIEUXUAT));
+        predefinedReportsUpdater.AddPredefinedReport<Phieunhap1>("pnhap", typeof(PHIEUNHAP));
         return new ModuleUpdater[] { updater,predefinedReportsUpdater };
     }
+
+
     public override void Setup(XafApplication application) {
         base.Setup(application);
         // Manage various aspects of the application UI and behavior at the module level.
