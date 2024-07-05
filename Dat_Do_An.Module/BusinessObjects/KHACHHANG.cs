@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using Dat_Do_An.Module.BusinessObjects;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
@@ -131,5 +132,10 @@ namespace Dat_Do_An.Module.Controllers
             get { return GetCollection<PHIEUXUAT>(nameof(_PHIEUXUAT)); }
         }
 
+        [DevExpress.Xpo.Aggregated, Association("KEY_DHKH")]
+        public XPCollection<DONHANG> _DONHANG
+        {
+            get { return GetCollection<DONHANG>(nameof(_DONHANG)); }
+        }
     }
 }

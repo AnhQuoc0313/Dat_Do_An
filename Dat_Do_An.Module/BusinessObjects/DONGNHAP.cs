@@ -60,6 +60,8 @@ namespace Dat_Do_An.Module.Controllers
             set { SetPropertyValue<SANPHAM>(nameof(SANPHAM), ref _SANPHAM, value); }
         }
 
+    
+
 
         private PHIEUNHAP _PHIEUNHAP;
         [Association("KEY_DONGPN")]

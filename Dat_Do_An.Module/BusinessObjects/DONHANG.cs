@@ -1,4 +1,4 @@
-﻿using Dat_Do_An.Module.BusinessObjects;
+﻿using Dat_Do_An.Module.Controllers;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
@@ -13,32 +13,29 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace Dat_Do_An.Module.Controllers
+namespace Dat_Do_An.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [System.ComponentModel.DisplayName("Phiếu Thu")]
-    [DefaultProperty("SoCT")]
+    [ImageName("BO_Customer")]
+    [System.ComponentModel.DisplayName("Đơn Hàng")]
+    [DefaultProperty("MaDH")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
-    [ImageName("BO_Report")]
+    //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class PHIEUTHU : BaseObject
+    public class DONHANG : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
-        public PHIEUTHU(Session session)
+        public DONHANG(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            if (Session.IsNewObject(this))
-            {
-                NgayCT = DateTime.Now;
-            }
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
         //private string _PersistentProperty;
@@ -55,61 +52,59 @@ namespace Dat_Do_An.Module.Controllers
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
+
+        private string _MaDH;
+        [Size(50), XafDisplayName("Mã Đơn Hàng")]
+        [RuleRequiredField("DONHANG", DefaultContexts.Save, "MSP khong duoc de trong")]
+        [RuleUniqueValue, Indexed(Unique = true)]
+        public string MaDH
+        {
+            get { return _MaDH; }
+            set { SetPropertyValue<string>(nameof(MaDH), ref _MaDH, value); }
+        }
+
+
+        private string _TrangThai;
+        [Size(50), XafDisplayName("Trạng Thái Đơn Hàng")]
+        public string TrangThai
+        {
+            get { return _TrangThai; }
+            set { SetPropertyValue<string>(nameof(TrangThai), ref _TrangThai, value); }
+        }
+
+        private string _GhiChuDH;
+        [Size(50), XafDisplayName("Ghi Chú Đơn Hàng")]
+        public string GhiChuDH
+        {
+            get { return _GhiChuDH; }
+            set { SetPropertyValue<string>(nameof(GhiChuDH), ref _GhiChuDH, value); }
+        }
+        private DateTime _ThoiGian;
+        [XafDisplayName("Thời Gian Giao")]
+        [ModelDefault("EditMask", " HH:mm dd/MM/yyyy ")]
+        [ModelDefault("DisplayFormat", "{0: HH:mm dd/MM/yyyy}")]
+        public DateTime ThoiGian
+        {
+            get { return _ThoiGian; }
+            set { SetPropertyValue<DateTime>(nameof(ThoiGian), ref _ThoiGian, value); }
+        }
+        private SANPHAM _SANPHAM;
+        [Association("KEY_DHSP")]
+        [Size(50), XafDisplayName("Sản phẩm")]
+        public SANPHAM SANPHAM
+        {
+            get { return _SANPHAM; }
+            set { SetPropertyValue<SANPHAM>(nameof(SANPHAM), ref _SANPHAM, value); }
+        }
+
         private KHACHHANG _KHACHHANG;
-        [Association("KEY_KHT")]
-        [Size(50), XafDisplayName("Khách Hàng")]
+        [Association("KEY_DHKH")]
+        [Size(50), XafDisplayName("Khách hàng")]
         public KHACHHANG KHACHHANG
         {
             get { return _KHACHHANG; }
             set { SetPropertyValue<KHACHHANG>(nameof(KHACHHANG), ref _KHACHHANG, value); }
-        }
 
-        private string _SoCT;
-        [Size(50), XafDisplayName("Số chứng từ")]
-        public string SoCT
-        {
-            get { return _SoCT; }
-            set { SetPropertyValue<string>(nameof(SoCT), ref _SoCT, value); }
-        }
-
-
-        private DateTime _NgayCT;
-        [XafDisplayName("Ngày chứng từ")]
-        [ModelDefault("EditMask", "dd/MM/yyyy HH:mm")]
-        [ModelDefault("DisplayFormat", "{0: dd/MM/yyyy HH:mm}")]
-        public DateTime NgayCT
-        {
-            get { return _NgayCT; }
-            set { SetPropertyValue<DateTime>(nameof(NgayCT), ref _NgayCT, value); }
-        }
-
-
-        private decimal _Sotien;
-        [XafDisplayName("Số tiền")]
-        [ModelDefault("DisplayFormat", "{0:n0} VND")]
-        [ModelDefault("EditMask", "n0")]
-        public decimal Sotien
-        {
-            get { return _Sotien; }
-            set { SetPropertyValue<decimal>(nameof(Sotien), ref _Sotien, value); }
-        }
-
-        private NHANVIEN _NHANVIEN;
-        [Association("KEY_NVT")]
-        [Size(50), XafDisplayName("Nhân Viên")]
-        public NHANVIEN NHANVIEN
-        {
-            get { return _NHANVIEN; }
-            set { SetPropertyValue<NHANVIEN>(nameof(NHANVIEN), ref _NHANVIEN, value); }
-        }
-
-  
-        private string _GhiChu;
-        [Size(50), XafDisplayName("Ghi Chú")]
-        public string GhiChu
-        {
-            get { return _GhiChu; }
-            set { SetPropertyValue<string>(nameof(GhiChu), ref _GhiChu, value); }
         }
     }
 }

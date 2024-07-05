@@ -60,10 +60,7 @@ namespace Dat_Do_An.Module.Controllers
             get { return _SANPHAM; }
             set { SetPropertyValue<SANPHAM>(nameof(SANPHAM), ref _SANPHAM, value); }
         }
-
-
-
-        private PHIEUXUAT _PHIEUXUAT;
+          private PHIEUXUAT _PHIEUXUAT;
         [Association("KEY_DPX")]
         [Size(50), XafDisplayName("Phiếu Xuất")]
         public PHIEUXUAT PHIEUXUAT

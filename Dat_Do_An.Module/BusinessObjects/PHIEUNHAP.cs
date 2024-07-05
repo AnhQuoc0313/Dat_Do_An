@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using Dat_Do_An.Module.BusinessObjects;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
@@ -116,8 +117,7 @@ namespace Dat_Do_An.Module.Controllers
             get { return _NHANVIEN; }
             set { SetPropertyValue<NHANVIEN>(nameof(NHANVIEN), ref _NHANVIEN, value); }
         }
-
-
+   
         private string _Ghichu;
         [Size(50), XafDisplayName("Ghi chú")]
         public string Ghichu
@@ -149,6 +149,14 @@ namespace Dat_Do_An.Module.Controllers
                 tong += dong.DonGia;
             }
             Tongtien = tong;
+        }
+        private KHO _KHO;
+        [Association("KEY_SPNX")]
+        [Size(50), XafDisplayName("Đồ Uống")]
+        public KHO KHO
+        {
+            get { return _KHO; }
+            set { SetPropertyValue<KHO>(nameof(KHO), ref _KHO, value); }
         }
 
     }

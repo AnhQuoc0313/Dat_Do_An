@@ -45,12 +45,20 @@
           <Item Id="NHANVIEN_ListView" ViewId="NHANVIEN_ListView" ObjectKey="" Caption="Nhân viên" ImageName="BO_Person" IsNewNode="True" />
         </Items>
       </Item>
+      <Item Id="@e9067b2f-3be3-497a-ad17-39bd89f30a3d" Caption="Hàng" ImageName="Travel_Hotel" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="DONHANG_ListView" ViewId="DONHANG_ListView" ObjectKey="" ImageName="BO_Order_Item" IsNewNode="True" />
+          <Item Id="KHO_ListView" ViewId="KHO_ListView" ObjectKey="" Caption="Kho" ImageName="Shopping_Store" IsNewNode="True" />
+        </Items>
+      </Item>
       <Item Id="Default" Caption="Khác" ImageName="Copy">
         <Items>
           <Item Id="DANHMUC_ListView" Caption="Danh Mục" ImageName="BO_Category" Removed="True" />
           <Item Id="DONGNHAP_ListView" Caption="Đồng nhập" ImageName="BO_Country_v92" Removed="True" />
           <Item Id="DONGXUAT_ListView" Caption="Đồng xuất" ImageName="BO_Appointment" Removed="True" />
+          <Item Id="DONHANG_ListView" Removed="True" />
           <Item Id="KHACHHANG_ListView" Removed="True" />
+          <Item Id="KHO_ListView" Caption="Kho" Removed="True" />
           <Item Id="NHANVIEN_ListView" Removed="True" />
           <Item Id="NHOMKHACHHANG_ListView" Removed="True" />
           <Item Id="PHIEUCHI_ListView" Removed="True" />

@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using Dat_Do_An.Module.BusinessObjects;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
@@ -102,6 +103,7 @@ namespace Dat_Do_An.Module.Controllers
             get { return _NHANVIEN; }
             set { SetPropertyValue<NHANVIEN>(nameof(NHANVIEN), ref _NHANVIEN, value); }
         }
+    
 
 
         private string _GhiChu;

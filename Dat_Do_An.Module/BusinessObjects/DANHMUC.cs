@@ -65,7 +65,5 @@ namespace Dat_Do_An.Module.Controllers
             get { return GetCollection<SANPHAM>(nameof(_SANPHAM)); }
         }
 
-
-
-    }
+        } 
 }

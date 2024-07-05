@@ -16,17 +16,17 @@ using System.Text;
 namespace Dat_Do_An.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [ImageName("Travel_ReceptionBell")]
-    [System.ComponentModel.DisplayName("Đồ Ăn")]
-    [DefaultProperty("TenSP")]
+    [ImageName("Travel_Pub")]
+    [System.ComponentModel.DisplayName("Kho")]
+    [DefaultProperty("KHO")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class SANPHAM : BaseObject
+    public class KHO : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
-        public SANPHAM(Session session)
+        public KHO(Session session)
             : base(session)
         {
         }
@@ -50,51 +50,52 @@ namespace Dat_Do_An.Module.BusinessObjects
         //    this.PersistentProperty = "Paid";
         //}
 
-        private DANHMUC _DANHMUC;
-        [Association("KEY_SP")]
+      /*  private DANHMUC _DANHMUC;
+        [Association("KEY_SPN")]
         [Size(50), XafDisplayName("Danh Mục")]
         public DANHMUC DANHMUC
         {
             get { return _DANHMUC; }
             set { SetPropertyValue(nameof(DANHMUC), ref _DANHMUC, value); }
-        }
+        }*/
 
         [Delayed(true), VisibleInListView(true)]
         [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PopupPictureEdit,
-    DetailViewImageEditorMode = ImageEditorMode.PictureEdit, DetailViewImageEditorFixedHeight = 340, DetailViewImageEditorFixedWidth = 227,
-    ListViewImageEditorCustomHeight = 40)]
+            DetailViewImageEditorMode = ImageEditorMode.PictureEdit, DetailViewImageEditorFixedHeight = 340, DetailViewImageEditorFixedWidth = 227,
+            ListViewImageEditorCustomHeight = 40)]
         [XafDisplayName("Ảnh")]
-        public byte[] AnhSP
+        public byte[] AnhSPN
         {
-            get { return GetDelayedPropertyValue<byte[]>(nameof(AnhSP)); }
-            set { SetDelayedPropertyValue(nameof(AnhSP), value); }
+            get { return GetDelayedPropertyValue<byte[]>(nameof(AnhSPN)); }
+            set { SetDelayedPropertyValue(nameof(AnhSPN), value); }
         }
 
-
         private string _MaSP;
-        [Size(50), XafDisplayName("Mã Món")]
-        [RuleRequiredField("SANPHAM", DefaultContexts.Save, "MSP khong duoc de trong")]
+        [Size(50), XafDisplayName("Mã Nguyên Liệu:")]
+        [RuleRequiredField("SANPHAM", DefaultContexts.Save, "MSPN khong duoc de trong")]
         [RuleUniqueValue, Indexed(Unique = true)]
         public string MaSP
         {
             get { return _MaSP; }
             set { SetPropertyValue<string>(nameof(MaSP), ref _MaSP, value); }
         }
-
-
-
         private string _TenSP;
-        [Size(50), XafDisplayName("Tên Món")]
-        public string TenSP
+        [Size(50), XafDisplayName("Tên Nguyên Liệu:")]
+        public string TenSPN
         {
             get { return _TenSP; }
-            set { SetPropertyValue<string>(nameof(TenSP), ref _TenSP, value); }
+            set { SetPropertyValue<string>(nameof(TenSPN), ref _TenSP, value); }
+        }
+        private string _DVT;
+        [Size(50), XafDisplayName("Đơn Vị Tính Nguyên Liệu:")]
+        public string DVT
+        {
+            get { return _DVT; }
+            set { SetPropertyValue<string>(nameof(DVT), ref _DVT, value); }
         }
 
-
-
         private decimal _GiaSP;
-        [XafDisplayName("Giá Món")]
+        [XafDisplayName("Giá")]
         [ModelDefault("DisplayFormat", "{0:n0} VND")]
         [ModelDefault("EditMask", "n0")]
         public decimal GiaSP
@@ -103,43 +104,17 @@ namespace Dat_Do_An.Module.BusinessObjects
             set { SetPropertyValue<decimal>(nameof(GiaSP), ref _GiaSP, value); }
         }
 
-
-        private int _SoLuong;
-        [XafDisplayName("Số Lượng Món")]
-        public int SoLuong
+        [DevExpress.Xpo.Aggregated, Association("KEY_SPNN")]
+        public XPCollection<PHIEUXUAT> _PHIEUXUAT
         {
-            get { return _SoLuong; }
-            set { SetPropertyValue<int>(nameof(SoLuong), ref _SoLuong, value); }
+            get { return GetCollection<PHIEUXUAT>(nameof(_PHIEUXUAT)); }
         }
 
-
-        private string _MieuTaSP;
-        [Size(50), XafDisplayName("Miêu Tả Món")]
-        public string MieuTaSP
+        [DevExpress.Xpo.Aggregated, Association("KEY_SPNX")]
+        public XPCollection<PHIEUNHAP> _PHIEUNHAP
         {
-            get { return _MieuTaSP; }
-            set { SetPropertyValue<string>(nameof(MieuTaSP), ref _MieuTaSP, value); }
+            get { return GetCollection<PHIEUNHAP>(nameof(_PHIEUNHAP)); }
         }
-
-
-        [DevExpress.Xpo.Aggregated, Association("KEY_SPDN")]
-        public XPCollection<DONGNHAP> _DONGNHAP
-        {
-            get { return GetCollection<DONGNHAP>(nameof(_DONGNHAP)); }
-        }
-
-        [DevExpress.Xpo.Aggregated, Association("KEY_SPDX")]
-        public XPCollection<DONGXUAT> _DONGXUAT
-        {
-            get { return GetCollection<DONGXUAT>(nameof(_DONGXUAT)); }
-        }
-
-        [DevExpress.Xpo.Aggregated, Association("KEY_DHSP")]
-        public XPCollection<DONHANG> _DONHANG
-        {
-            get { return GetCollection<DONHANG>(nameof(_DONHANG)); }
-        }
-
 
 
     }
